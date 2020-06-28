@@ -5,6 +5,7 @@ import org.jboss.logging.Logger;
 import in.co.bytehub.model.AddressInfo;
 import in.co.bytehub.model.CellPhone;
 import in.co.bytehub.model.UserInfo;
+import in.co.bytehub.model.Vehcile;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -27,6 +28,7 @@ public class HibUtil {
 						.addAnnotatedClass(UserInfo.class)
 						.addAnnotatedClass(AddressInfo.class)
 						.addAnnotatedClass(CellPhone.class)
+						.addAnnotatedClass(Vehcile.class)
 						.configure()						
 						.buildSessionFactory();
 				LOGGER.info("SessionFactory initilized successfully ...");

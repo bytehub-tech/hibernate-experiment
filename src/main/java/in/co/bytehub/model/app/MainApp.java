@@ -12,6 +12,8 @@ import in.co.bytehub.model.AddressInfo;
 import in.co.bytehub.model.CellPhone;
 import in.co.bytehub.model.Name;
 import in.co.bytehub.model.UserInfo;
+import in.co.bytehub.model.Vehcile;
+import in.co.bytehub.model.VehicleType;
 import in.co.bytehub.util.HibUtil;
 
 public class MainApp {
@@ -39,21 +41,25 @@ public class MainApp {
 		UserInfo user = new UserInfo();
 		user.setName(name);
 		user.setAddress(Arrays.asList(permanentAddress, correspondenceAddress));
-		
+
 		CellPhone officialPhone = new CellPhone();
 		officialPhone.setModel("I-Phone");
 		officialPhone.setPhoneNumber(999127879L);
 		officialPhone.setUser(user);
 
-		CellPhone personalPhone = new CellPhone();
-		personalPhone.setModel("Nokia");
-		personalPhone.setPhoneNumber(999127878L);
-//		personalPhone.setUser(user);
+		Vehcile bike = new Vehcile();
+		bike.setRegNo("HR50F4724");
+		bike.setType(VehicleType.BIKE);
+		bike.setUser(user);
 
-		
+		Vehcile car = new Vehcile();
+		car.setRegNo("HR50A4221");
+		car.setType(VehicleType.CAR);
+		car.setUser(user);
+
 		user.setCellPhone(officialPhone);
-//		user.setCellPhones(Arrays.asList(officialPhone, personalPhone));
-		
+		user.setVehcile(Arrays.asList(bike, car));
+
 		SessionFactory factory = HibUtil.getSessionFactory();
 		Transaction tx = null;
 		Session session = null;
@@ -61,7 +67,6 @@ public class MainApp {
 			session = factory.openSession();
 			tx = session.beginTransaction();
 			session.save(user);
-//			session.save(officialPhone);
 			tx.commit();
 		} catch (HibernateException e) {
 			LOGGER.error("Operation Failed ", e);
@@ -74,9 +79,14 @@ public class MainApp {
 			}
 
 		}
-		
-		session = factory.openSession();
-		UserInfo fetchedUser =  session.get(CellPhone.class, 999127879L).getUser();
-		System.out.println(fetchedUser);
+
+		try {
+			session = factory.openSession();
+			UserInfo fetchedUser = session.get(Vehcile.class, "HR50A4221").getUser();
+			System.out.println(fetchedUser);
+		} finally {
+			session.close();
+		}
+
 	}
 }

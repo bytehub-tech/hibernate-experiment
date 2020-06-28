@@ -7,7 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -24,7 +24,10 @@ public class UserInfo {
 
 	@OneToOne(cascade = CascadeType.ALL)
 	private CellPhone cellPhone;
-
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+	private List<Vehcile> vehcile; 
+	
 	public int getId() {
 		return id;
 	}
@@ -34,6 +37,15 @@ public class UserInfo {
 	
 	public Name getName() {
 		return name;
+	}
+	public List<Vehcile> getVehcile() {
+		return vehcile;
+	}
+	public void setVehcile(List<Vehcile> vehcile) {
+		this.vehcile = vehcile;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public void setName(Name name) {
 		this.name = name;
@@ -63,8 +75,10 @@ public class UserInfo {
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", address=" + address + ", cellPhones="+ "]";
-	}	
+		return "UserInfo [id=" + id + ", name=" + name + ", address=" + address + ", cellPhone=" + cellPhone
+				+ ", vehcile=" + vehcile + "]";
+	}
+
 		
 	
 }
