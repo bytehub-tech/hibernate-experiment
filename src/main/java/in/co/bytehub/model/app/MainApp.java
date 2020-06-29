@@ -28,13 +28,15 @@ public class MainApp {
 
 		Course dac = new Course();
 		dac.setName("DAC");
-		
+		dac.setStudents(Arrays.asList(userAjay, userAkash));
+
 		Course embedded = new Course();
 		embedded.setName("DESD");
-		
+		embedded.setStudents(Arrays.asList(userAjay, userAkash));
+
 		userAkash.setCourses(Arrays.asList(dac, embedded));
 		userAjay.setCourses(Arrays.asList(dac, embedded));
-		
+
 		SessionFactory factory = HibUtil.getSessionFactory();
 		Transaction tx = null;
 		Session session = null;
@@ -42,7 +44,7 @@ public class MainApp {
 			session = factory.openSession();
 			tx = session.beginTransaction();
 			session.save(userAkash);
-			session.save(userAjay);			
+			session.save(userAjay);
 			tx.commit();
 		} catch (HibernateException e) {
 			LOGGER.error("Operation Failed ", e);
@@ -107,7 +109,7 @@ public class MainApp {
 		user.setVehcile(Arrays.asList(bike, car));
 		return user;
 	}
-	
+
 	public static Student prepareStudentAjay() {
 
 		Name name = new Name();

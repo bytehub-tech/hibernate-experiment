@@ -15,8 +15,18 @@ public class Course {
 	private int courseId;
 	private String name;
 	
+	@ManyToMany
+	private List<Student> students;
 	
 	
+	
+	
+	public List<Student> getStudents() {
+		return students;
+	}
+	public void setStudents(List<Student> students) {
+		this.students = students;
+	}
 	public int getCourseId() {
 		return courseId;
 	}
