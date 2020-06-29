@@ -15,7 +15,7 @@ public class Course {
 	private int courseId;
 	private String name;
 	
-	@ManyToMany
+	@ManyToMany(mappedBy = "courses")
 	private List<Student> students;
 	
 	

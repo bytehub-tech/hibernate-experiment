@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 import org.jboss.logging.Logger;
 
 import in.co.bytehub.model.AddressInfo;
+import in.co.bytehub.model.AddressType;
 import in.co.bytehub.model.CellPhone;
 import in.co.bytehub.model.Course;
 import in.co.bytehub.model.Name;
@@ -79,12 +80,14 @@ public class MainApp {
 		permanentAddress.setCity("PALWAL");
 		permanentAddress.setCountry("INDIA");
 		permanentAddress.setState("HARYANA");
+		permanentAddress.setType(AddressType.PERMANENT);
 
 		AddressInfo correspondenceAddress = new AddressInfo();
 		correspondenceAddress.setZip(121135);
 		correspondenceAddress.setCity("Pune");
 		correspondenceAddress.setCountry("INDIA");
 		correspondenceAddress.setState("MAHARASHTRA");
+		correspondenceAddress.setType(AddressType.CORRESPONDENCE);
 
 		Student user = new Student();
 		user.setName(name);
@@ -121,12 +124,14 @@ public class MainApp {
 		permanentAddress.setCity("Hodal");
 		permanentAddress.setCountry("INDIA");
 		permanentAddress.setState("Hayrana");
+		permanentAddress.setType(AddressType.PERMANENT);
 
 		AddressInfo correspondenceAddress = new AddressInfo();
 		correspondenceAddress.setZip(121135);
 		correspondenceAddress.setCity("Mumbai");
 		correspondenceAddress.setCountry("INDIA");
 		correspondenceAddress.setState("MAHARASHTRA");
+		correspondenceAddress.setType(AddressType.CORRESPONDENCE);
 
 		Student user = new Student();
 		user.setName(name);
