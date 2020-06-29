@@ -15,7 +15,7 @@ public class Vehcile {
 	@Enumerated(EnumType.STRING)
 	private VehicleType type;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	private UserInfo user;
 	
 	

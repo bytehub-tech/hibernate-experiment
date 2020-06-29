@@ -12,7 +12,7 @@ public class CellPhone {
 	private Long phoneNumber;
 	private String model;
 	
-	@OneToOne(cascade = CascadeType.ALL, mappedBy = "cellPhone")
+	@OneToOne(mappedBy = "cellPhone")
 	private UserInfo user;
 	
 	
