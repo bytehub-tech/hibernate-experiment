@@ -13,14 +13,14 @@ public class CellPhone {
 	private String model;
 	
 	@OneToOne(mappedBy = "cellPhone")
-	private UserInfo user;
+	private Student user;
 	
 	
 
-	public UserInfo getUser() {
+	public Student getUser() {
 		return user;
 	}
-	public void setUser(UserInfo user) {
+	public void setUser(Student user) {
 		this.user = user;
 	}
 	public Long getPhoneNumber() {

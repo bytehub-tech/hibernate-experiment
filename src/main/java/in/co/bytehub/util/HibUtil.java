@@ -4,7 +4,7 @@ import org.jboss.logging.Logger;
 
 import in.co.bytehub.model.AddressInfo;
 import in.co.bytehub.model.CellPhone;
-import in.co.bytehub.model.UserInfo;
+import in.co.bytehub.model.Student;
 import in.co.bytehub.model.Vehcile;
 
 import org.hibernate.HibernateException;
@@ -25,7 +25,7 @@ public class HibUtil {
 			
 			try {
 				sessionFactory = configuration
-						.addAnnotatedClass(UserInfo.class)
+						.addAnnotatedClass(Student.class)
 						.addAnnotatedClass(AddressInfo.class)
 						.addAnnotatedClass(CellPhone.class)
 						.addAnnotatedClass(Vehcile.class)

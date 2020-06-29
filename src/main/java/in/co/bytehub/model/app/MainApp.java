@@ -11,7 +11,7 @@ import org.jboss.logging.Logger;
 import in.co.bytehub.model.AddressInfo;
 import in.co.bytehub.model.CellPhone;
 import in.co.bytehub.model.Name;
-import in.co.bytehub.model.UserInfo;
+import in.co.bytehub.model.Student;
 import in.co.bytehub.model.Vehcile;
 import in.co.bytehub.model.VehicleType;
 import in.co.bytehub.util.HibUtil;
@@ -38,7 +38,7 @@ public class MainApp {
 		correspondenceAddress.setCountry("INDIA");
 		correspondenceAddress.setState("MAHARASHTRA");
 
-		UserInfo user = new UserInfo();
+		Student user = new Student();
 		user.setName(name);
 		user.setAddress(Arrays.asList(permanentAddress, correspondenceAddress));
 
@@ -82,7 +82,7 @@ public class MainApp {
 
 		try {
 			session = factory.openSession();
-			UserInfo fetchedUser = session.get(Vehcile.class, "HR50A4221").getUser();
+			Student fetchedUser = session.get(Vehcile.class, "HR50A4221").getUser();
 			System.out.println(fetchedUser);
 		} finally {
 			session.close();
