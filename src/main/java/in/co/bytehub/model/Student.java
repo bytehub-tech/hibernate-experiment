@@ -7,6 +7,7 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -28,6 +29,17 @@ public class Student {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	private List<Vehcile> vehcile; 
 	
+	@ManyToMany(cascade = CascadeType.ALL)
+	private List<Course> courses ;
+	
+	
+	
+	public List<Course> getCourses() {
+		return courses;
+	}
+	public void setCourses(List<Course> courses) {
+		this.courses = courses;
+	}
 	public int getId() {
 		return id;
 	}

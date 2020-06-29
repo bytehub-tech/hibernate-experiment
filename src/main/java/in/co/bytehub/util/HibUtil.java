@@ -4,6 +4,7 @@ import org.jboss.logging.Logger;
 
 import in.co.bytehub.model.AddressInfo;
 import in.co.bytehub.model.CellPhone;
+import in.co.bytehub.model.Course;
 import in.co.bytehub.model.Student;
 import in.co.bytehub.model.Vehcile;
 
@@ -29,6 +30,7 @@ public class HibUtil {
 						.addAnnotatedClass(AddressInfo.class)
 						.addAnnotatedClass(CellPhone.class)
 						.addAnnotatedClass(Vehcile.class)
+						.addAnnotatedClass(Course.class)
 						.configure()						
 						.buildSessionFactory();
 				LOGGER.info("SessionFactory initilized successfully ...");
