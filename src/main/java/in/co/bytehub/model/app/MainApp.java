@@ -44,8 +44,8 @@ public class MainApp {
 		try {
 			session = factory.openSession();
 			tx = session.beginTransaction();
-			session.save(userAkash);
-			session.save(userAjay);
+	//		session.save(userAkash);
+	//		session.save(userAjay);
 			tx.commit();
 		} catch (HibernateException e) {
 			LOGGER.error("Operation Failed ", e);
@@ -58,12 +58,17 @@ public class MainApp {
 			}
 
 		}
-
+		Student student = null;
 		try {
 			session = factory.openSession();
-			Student fetchedUser = session.get(Vehcile.class, "HR50A4221").getUser();
-			System.out.println(fetchedUser);
-		} finally {
+			student = session.load(Student.class, 1);
+			System.out.println(student.getId());
+			System.out.println(student.getAddress());  // Element Collection  	byDefault LAZY
+			System.out.println(student.getVehcile());  // OneTOMany  			byDefault LAZY
+			System.out.println(student.getCellPhone());// OneToOne   			byDefault EAGER
+			System.out.println(student.getCourses()); //ManyToMany				byDefault LAZY
+		}
+		finally {
 			session.close();
 		}
 
