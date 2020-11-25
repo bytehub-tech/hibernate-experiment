@@ -28,8 +28,8 @@
 		</property>
 
 		<property name="show_sql">true</property>
-		<property name="format_sql">false</property>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="format_sql">true</property>
+		<property name="hbm2ddl.auto">update</property>
 
 		<!-- List of XML mapping files -->
 		<!-- <mapping class="in.co.bytehub.model.User"/>
