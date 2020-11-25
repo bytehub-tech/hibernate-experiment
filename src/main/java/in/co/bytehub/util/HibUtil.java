@@ -1,12 +1,7 @@
 package in.co.bytehub.util;
 
+import in.co.bytehub.model.*;
 import org.jboss.logging.Logger;
-
-import in.co.bytehub.model.AddressInfo;
-import in.co.bytehub.model.CellPhone;
-import in.co.bytehub.model.Course;
-import in.co.bytehub.model.Student;
-import in.co.bytehub.model.Vehcile;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -31,7 +26,9 @@ public class HibUtil {
 						.addAnnotatedClass(CellPhone.class)
 						.addAnnotatedClass(Vehcile.class)
 						.addAnnotatedClass(Course.class)
-						.configure()						
+						.addAnnotatedClass(Department.class)
+						.addAnnotatedClass(Employee.class)
+						.configure()
 						.buildSessionFactory();
 				LOGGER.info("SessionFactory initilized successfully ...");
 			} catch (HibernateException hbe) {
